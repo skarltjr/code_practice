@@ -26,7 +26,8 @@ flow
 ```
 
 ----
-- <img width="967" alt="스크린샷 2023-01-24 오후 2 35 26" src="https://user-images.githubusercontent.com/62214428/214219562-2d3fa1e4-3eb7-41a8-abe0-63e15d57864c.png">
+- <img width="942" alt="스크린샷 2023-01-24 오후 5 08 57" src="https://user-images.githubusercontent.com/62214428/214241148-44a717b6-70ea-41fa-ba88-bf7d4c28ef44.png">
+
 ```
 여기서부터 느껴지는게. 책임에 따라 매우 상세하게 분리한다.... !
 1. gradeAdvanceService : 전체적인 승급 시스템 시작 서비스
