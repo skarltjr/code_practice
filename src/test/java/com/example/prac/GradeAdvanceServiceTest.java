@@ -95,7 +95,7 @@ public class GradeAdvanceServiceTest {
     @DisplayName("state가 applyFailed인 대상을 advance하는 경우")
     void advance_with_Already_ApplyFailed() {
         states.set(AdvanceState.APPLY_FAILED);
-        Targets targets = new Targets();
+        Targets targets = new Targets(null);
         BDDMockito.given(mockImporter.importTargets(Mockito.any(Path.class)))
                 .willReturn(targets);
         service.advance();
