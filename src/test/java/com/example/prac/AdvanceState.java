@@ -1,5 +1,5 @@
 package com.example.prac;
 
 public enum AdvanceState {
-    GENERATING
+    COMPLETED, APPLY_FAILED, GENERATING
 }
