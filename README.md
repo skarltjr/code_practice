@@ -5,7 +5,7 @@
 직접 배워보기
 ```
 - https://www.youtube.com/watch?v=7P1dJ-VoQb4&list=PLwouWTPuIjUg5gQBL9ajinVkcX4D8BAkI&index=3
-
+- TDD를 직접 체험하고 익히자
 -----
 내용
 - 전체 학생 회원 승급
@@ -36,6 +36,7 @@ flow
 
 
 그래서 gradeAdvanceService로 승급 서비스 시작
+-> States를 통해 회원들 상태를 전부 확인(승급필요한지)
 -> 타겟을 추출하고 저장
 -> 타겟 리스트인 targets의 요소들을 돌면서
 -> advanceApplier를 통해 승급 시도
