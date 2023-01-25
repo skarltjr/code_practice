@@ -1,5 +1,6 @@
-package com.example.prac;
+package com.example.prac.tests;
 
+import com.example.prac.elements.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.FileCopyUtils;
 

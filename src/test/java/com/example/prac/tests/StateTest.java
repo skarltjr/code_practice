@@ -1,5 +1,7 @@
-package com.example.prac;
+package com.example.prac.tests;
 
+import com.example.prac.elements.AdvanceState;
+import com.example.prac.elements.States;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

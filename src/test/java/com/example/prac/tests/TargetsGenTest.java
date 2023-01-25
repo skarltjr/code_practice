@@ -1,5 +1,8 @@
-package com.example.prac;
+package com.example.prac.tests;
 
+import com.example.prac.elements.GivenAssertHelper;
+import com.example.prac.elements.Targets;
+import com.example.prac.elements.TargetsGen;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

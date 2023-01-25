@@ -1,4 +1,4 @@
-package com.example.prac;
+package com.example.prac.elements;
 
 public class User {
     private int id;

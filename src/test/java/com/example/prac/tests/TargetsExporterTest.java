@@ -1,5 +1,8 @@
-package com.example.prac;
+package com.example.prac.tests;
 
+import com.example.prac.elements.Targets;
+import com.example.prac.elements.TargetsExporter;
+import com.example.prac.elements.User;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

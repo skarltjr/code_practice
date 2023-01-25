@@ -1,4 +1,4 @@
-package com.example.prac;
+package com.example.prac.elements;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
