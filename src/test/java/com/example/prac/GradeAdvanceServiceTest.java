@@ -119,14 +119,15 @@ public class GradeAdvanceServiceTest {
         assertThat(result).isEqualTo(AdvanceResult.SUCCESS);
     }
 
-    private class GradeAdvanceService {
+    public static class GradeAdvanceService {
 
         private States states;
         private TargetGen targetGenerator;
         private TargetsExporter targetsExporter;
         private AdvanceApplier applier;
         private TargetsImporter importer;
-        private Path targetsFilePath = Paths.get("build/targets");
+        private static final Path DEFAULT_TARGETS_FILE = Paths.get("build/targets");
+        private Path targetsFilePath = DEFAULT_TARGETS_FILE;
         public GradeAdvanceService(States states, TargetGen targetGenerator
                 , TargetsExporter targetsExporter, AdvanceApplier applier, TargetsImporter importer) {
             this.states = states;
