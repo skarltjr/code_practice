@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,13 +17,16 @@ public class AdvanceApplierTest {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    GivenAssertHelper helper;
+
     @Test
     @DisplayName("apply 동작 성공")
     void apply() {
-        clearStudents();
-        givenStudent(101, 1);
-        givenStudent(102, 2);
-        givenStudent(103, 3);
+        helper.clearStudents();
+        helper.givenStudent(101, 1);
+        helper.givenStudent(102, 2);
+        helper.givenStudent(103, 3);
 
 
         AdvanceApplier applier = new AdvanceApplier(jdbcTemplate);
@@ -36,18 +38,18 @@ public class AdvanceApplierTest {
         ));
 
         applier.apply(targets);
-        assertStudentGrade(101, 2);
-        assertStudentGrade(102, 3);
-        assertStudentGrade(103, 4);
+        helper.assertStudentGrade(101, 2);
+        helper.assertStudentGrade(102, 3);
+        helper.assertStudentGrade(103, 4);
     }
 
     @Test
     @DisplayName("apply 결과 체크")
     void applyResult() {
-        clearStudents();
-        givenStudent(101, 1);
-        givenStudent(102, 2);
-        givenStudent(103, 3);
+        helper.clearStudents();
+        helper.givenStudent(101, 1);
+        helper.givenStudent(102, 2);
+        helper.givenStudent(103, 3);
 
 
         AdvanceApplier applier = new AdvanceApplier(jdbcTemplate);
@@ -63,22 +65,4 @@ public class AdvanceApplierTest {
         List<GradeCount> gradeCounts = applyResult.getGradeCounts();
         assertThat(gradeCounts).contains(new GradeCount(2, 1), new GradeCount(3, 1));
     }
-
-    private void assertStudentGrade(int id, int expectedGrade) {
-        SqlRowSet rs = jdbcTemplate.queryForRowSet("select stu_id,grade from stuinfo where stu_id=?", id);
-        // ResultSet으로부터 레코드를 읽어오기 위해 next()메소드를 사용하는데 next()메소드는 읽어올 레코드가 있으면 true를 반환하고 없으면 false를 반환합니다.
-        rs.next();
-        assertThat(rs.getInt("grade")).isEqualTo(expectedGrade);
-    }
-
-
-    private void clearStudents() {
-        jdbcTemplate.update("truncate table stuinfo");
-    }
-
-    private void givenStudent(int id, int grade) {
-        jdbcTemplate.update("insert into stuinfo values(?,?)", id, grade);
-    }
-
-
 }

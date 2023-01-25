@@ -14,6 +14,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GradeAdvanceServiceIntTest {
     @Autowired
     GradeAdvanceService service;
+    @Autowired
+    GivenAssertHelper helper;
+
+
 
     @BeforeEach
     void setUp() throws IOException {
@@ -23,8 +27,15 @@ public class GradeAdvanceServiceIntTest {
     @Test
     @DisplayName("승급 apply 성공")
     void applySuccess() {
+        helper.clearStudents();
+        helper.givenStudent(501, 1);
+        helper.givenStudent(502, 2);
+
         AdvanceResult result = service.advance();
         assertThat(result).isEqualTo(AdvanceResult.SUCCESS);
+
+        helper.assertStudentGrade(501,2);
+        helper.assertStudentGrade(502,3);
     }
 
 }
