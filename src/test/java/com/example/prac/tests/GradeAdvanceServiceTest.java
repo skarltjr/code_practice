@@ -120,5 +120,15 @@ public class GradeAdvanceServiceTest {
         assertThat(result).isEqualTo(AdvanceResult.SUCCESS);
     }
 
+    @Test
+    @DisplayName("import 도중 실패")
+    void importFail() {
+        states.set(AdvanceState.APPLY_FAILED);
+        Targets targets = new Targets(null);
+        BDDMockito.given(mockImporter.importTargets(Mockito.any(Path.class)))
+                .willThrow(new RuntimeException("!!"));
 
+        AdvanceResult result = service.advance();
+        assertThat(result).isEqualTo(AdvanceResult.TARGET_IMPORT_FAIl);
+    }
 }

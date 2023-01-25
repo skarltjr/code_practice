@@ -25,8 +25,7 @@ public class TargetsImporter {
 
             return new Targets(users);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("!!");
         }
-        return null;
     }
 }
