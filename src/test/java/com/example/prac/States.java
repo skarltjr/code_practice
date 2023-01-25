@@ -1,5 +1,8 @@
 package com.example.prac;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -7,10 +10,11 @@ import java.util.List;
 
 // tdd를 위해 구현전 테스트에서 사용할것들을 inner class로 만들어서 확인
 // 이후 f6으로 상위 레벨로 이동
-class States {
+@Component
+public class States {
     private Path path;
 
-    public States(Path path) {
+    public States(@Value("${states.path}") Path path) {
         this.path = path;
     }
 

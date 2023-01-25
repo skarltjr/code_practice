@@ -1,11 +1,14 @@
 package com.example.prac;
 
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+@Component
 public class TargetsExporter {
     public void export(Path path, Targets targets) {
         // 참고사항 : 여기서 try() 내부 statement안에 적는것들은 닫힘을 보장받는다.

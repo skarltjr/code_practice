@@ -17,7 +17,7 @@ import static org.mockito.Mockito.mock;
 public class GradeAdvanceServiceTest {
 
     private final States states = new States(Paths.get("build/state"));
-    private final TargetGen mockGen = mock(TargetGen.class);
+    private final TargetsGen mockGen = mock(TargetsGen.class);
     private final TargetsExporter mockExporter = mock(TargetsExporter.class);
     private final AdvanceApplier mockApplier = mock(AdvanceApplier.class);
     private final TargetsImporter mockImporter = mock(TargetsImporter.class);

@@ -1,19 +1,22 @@
 package com.example.prac;
 
+import org.springframework.stereotype.Service;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+@Service
 public class GradeAdvanceService {
 
     private States states;
-    private TargetGen targetGenerator;
+    private TargetsGen targetGenerator;
     private TargetsExporter targetsExporter;
     private AdvanceApplier applier;
     private TargetsImporter importer;
-    private static final Path DEFAULT_TARGETS_FILE = Paths.get("build/targets");
+    public static final Path DEFAULT_TARGETS_FILE = Paths.get("build/targets");
     private Path targetsFilePath = DEFAULT_TARGETS_FILE;
 
-    public GradeAdvanceService(States states, TargetGen targetGenerator
+    public GradeAdvanceService(States states, TargetsGen targetGenerator
             , TargetsExporter targetsExporter, AdvanceApplier applier, TargetsImporter importer) {
         this.states = states;
         this.targetGenerator = targetGenerator;

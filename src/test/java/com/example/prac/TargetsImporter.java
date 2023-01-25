@@ -1,11 +1,14 @@
 package com.example.prac;
 
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class TargetsImporter {
     public Targets importTargets(Path path) {
         if (Files.notExists(path)) {

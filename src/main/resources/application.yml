@@ -1,3 +1,6 @@
+states:
+  path: build/target
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
